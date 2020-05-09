@@ -1,0 +1,1 @@
+# azdevops-google-secret-manager
