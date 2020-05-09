@@ -1,0 +1,31 @@
+# This is a basic workflow to help you get started with Actions
+
+name: azdevops-google-secret-manager-CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      TASK_TEST_TRACE: 1
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install
+        run: npm install
+        working-directory: task
+
+      - name: Compile
+        run: tsc
+        working-directory: task
+
+      - name: Test
+        run: npm test
+        working-directory: task

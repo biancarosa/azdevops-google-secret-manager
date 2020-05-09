@@ -1,0 +1,21 @@
+{
+  "name": "azdevops-google-secret-manager",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/_suite.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3"
+  },
+  "devDependencies": {
+    "@types/mocha": "7.0.2",
+    "@types/node": "13.13.5",
+    "@types/q": "1.5.2",
+    "mocha": "7.1.2",
+    "sync-request": "6.1.0"
+  }
+}
