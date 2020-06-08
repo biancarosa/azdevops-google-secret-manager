@@ -5,7 +5,7 @@ const client = new SecretManagerServiceClient();
 async function run() {
   let prefix = tl.getInput("prefix", false) || "";
   let project = tl.getInput("project", true) || "";
-  let pushSecrets = tl.getBoolInput("pushSecret", true) || false;
+  let pushSecrets = tl.getBoolInput("pushSecrets", true) || false;
 
   try {
     if (pushSecrets) {
