@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "google-secret-manager",
   "name": "Google Secret Manager",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "biancarosa",
   "public": true,
   "content": {
@@ -38,7 +38,7 @@
         "ms.vss-distributed-task.tasks"
       ],
       "properties": {
-        "name": "task"
+        "name": "push-task"
       }
     }
   ]
