@@ -8,12 +8,12 @@ async function run() {
 
   try {
     console.log("Pushing secrets to GSM")
-    tl.getVariables().forEach((variable) => {
+    tl.getVariables().forEach(async (variable) => {
       if (variable.secret) {
         let secretId = `${prefix}_${variable.name}`;
         try {
           console.info(`Pushing ${secretId}`);
-          client.createSecret({
+          await client.createSecret({
             parent: `projects/${project}`,
             secret: {
               name: secretId,
@@ -28,7 +28,7 @@ async function run() {
         }
         console.info(`Created secret ${secretId}`);
         console.info(`Adding secret version`);
-        client.addSecretVersion({
+        await client.addSecretVersion({
           parent: `projects/${project}/secrets/${secretId}`,
           payload: {
             data: Buffer.from(variable.value, "utf8"),
