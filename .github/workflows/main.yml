@@ -20,12 +20,12 @@ jobs:
 
       - name: Install
         run: npm install
-        working-directory: task
+        working-directory: push-task
 
       - name: Compile
         run: tsc
-        working-directory: task
+        working-directory: push-task
 
       - name: Test
         run: npm test
-        working-directory: task
+        working-directory: push-task
