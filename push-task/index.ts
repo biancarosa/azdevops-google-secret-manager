@@ -29,11 +29,11 @@ async function run() {
             },
             secretId,
           });
-          console.info(`Created secret ${secret.name}`);
+          console.info(`Created secret ${secret}`);
         }
         console.info(`Adding secret version`);
         const [version] = client.addSecretVersion({
-          parent: secret.name,
+          parent: `projects/${project}/${secretId}`,
           payload: {
             data: Buffer.from(variable.value, "utf8"),
           },
