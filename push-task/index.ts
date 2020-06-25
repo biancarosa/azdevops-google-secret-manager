@@ -11,15 +11,9 @@ async function run() {
     tl.getVariables().forEach((variable) => {
       if (variable.secret) {
         let secretId = `${prefix}_${variable.name}`;
-        let [secret] = client.getSecret({
-          parent: `projects/${project}`,
-          secret: secretId,
-        });
-        if (secret) {
-          console.info(`Already found ${secretId}`);
-        } else {
-          console.info(`Secret not found, pushing ${secretId}`);
-          [secret] = client.createSecret({
+        try {
+          console.info(`Pushing ${secretId}`);
+          client.createSecret({
             parent: `projects/${project}`,
             secret: {
               name: secretId,
@@ -29,16 +23,18 @@ async function run() {
             },
             secretId,
           });
-          console.info(`Created secret ${secret}`);
+        } catch (err) {
+          console.error(err);
         }
+        console.info(`Created secret ${secretId}`);
         console.info(`Adding secret version`);
-        const [version] = client.addSecretVersion({
+        client.addSecretVersion({
           parent: `projects/${project}/${secretId}`,
           payload: {
             data: Buffer.from(variable.value, "utf8"),
           },
         });
-        console.info(`Added secret version ${version.name}`);
+        console.info(`Added new secret version`);
       }
     });
   } catch (err) {
