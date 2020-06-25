@@ -29,7 +29,7 @@ async function run() {
         console.info(`Created secret ${secretId}`);
         console.info(`Adding secret version`);
         client.addSecretVersion({
-          parent: `projects/${project}/${secretId}`,
+          parent: `projects/${project}/secrets/${secretId}`,
           payload: {
             data: Buffer.from(variable.value, "utf8"),
           },
