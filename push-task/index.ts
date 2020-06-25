@@ -10,15 +10,15 @@ async function run() {
     console.log("Pushing secrets to GSM")
     tl.getVariables().forEach((variable) => {
       if (variable.secret) {
-        console.log("Push", variable.name)
-        let secretId = `${prefix}${variable.name}`;
+        let secretId = `${prefix}_${variable.name}`;
         let [secret] = client.getSecret({
           parent: `projects/${project}`,
           secret: secretId,
         });
         if (secret) {
-          console.info(`Already found ${secret.name}`);
+          console.info(`Already found ${secretId}`);
         } else {
+          console.info(`Secret not found, pushing ${secretId}`);
           [secret] = client.createSecret({
             parent: `projects/${project}`,
             secret: {
@@ -31,6 +31,7 @@ async function run() {
           });
           console.info(`Created secret ${secret.name}`);
         }
+        console.info(`Adding secret version`);
         const [version] = client.addSecretVersion({
           parent: secret.name,
           payload: {
