@@ -9,8 +9,10 @@ async function run() {
 
   try {
     if (pushSecrets) {
+      console.log("Pushing secrets to GSM")
       tl.getVariables().forEach((variable) => {
         if (variable.secret) {
+          console.log("Push", variable.name)
           let secretId = `${prefix}${variable.name}`;
           let [secret] = client.getSecret({
             parent: parent,

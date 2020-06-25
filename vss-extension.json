@@ -2,9 +2,9 @@
   "manifestVersion": 1,
   "id": "google-secret-manager",
   "name": "Google Secret Manager",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "biancarosa",
-  "public": true,
+  "public": false,
   "content": {
     "details": {
       "path": "README.md"
@@ -19,7 +19,9 @@
     }
   ],
   "description": "Manages Secrets on Google Secret Manager",
-  "categories": ["Azure Pipelines"],
+  "categories": [
+    "Azure Pipelines"
+  ],
   "icons": {
     "default": "images/extension-icon.png"
   },
@@ -32,7 +34,9 @@
     {
       "id": "custom-google-secret-manager-task",
       "type": "ms.vss-distributed-task.task",
-      "targets": ["ms.vss-distributed-task.tasks"],
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
       "properties": {
         "name": "task"
       }

@@ -30,7 +30,7 @@
     {
       "name": "pushSecrets",
       "type": "boolean",
-      "label": "If it should push secret variables to GSM",
+      "label": "Push secret variables to GSM",
       "defaultValue": false,
       "required": true
     }
