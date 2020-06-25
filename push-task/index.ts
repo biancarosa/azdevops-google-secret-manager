@@ -13,7 +13,7 @@ async function run() {
         console.log("Push", variable.name)
         let secretId = `${prefix}${variable.name}`;
         let [secret] = client.getSecret({
-          parent: parent,
+          parent: `projects/${project}`,,
           secret: secretId,
         });
         if (secret) {
