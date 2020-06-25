@@ -26,13 +26,6 @@
       "label": "Project name",
       "defaultValue": "",
       "required": false
-    },
-    {
-      "name": "pushSecrets",
-      "type": "boolean",
-      "label": "Push secret variables to GSM",
-      "defaultValue": false,
-      "required": true
     }
   ],
   "execution": {
