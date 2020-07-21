@@ -12,7 +12,7 @@ async function run() {
     });
     secrets.forEach(async (secret: any) => {
       const [versions] = await client.listSecretVersions({
-        parent: parent,
+        parent: secret.name,
       });
       const [lastVersion] = await client.accessSecretVersion({
         name: versions[0].name
