@@ -37,3 +37,15 @@ jobs:
       - name: Test
         run: npm test
         working-directory: push-task
+
+      - name: Install
+        run: npm install
+        working-directory: retrieve-task
+
+      - name: Compile
+        run: tsc
+        working-directory: retrieve-task
+
+      - name: Test
+        run: npm test
+        working-directory: retrieve-task
