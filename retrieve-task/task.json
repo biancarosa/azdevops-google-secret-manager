@@ -1,9 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "fd5fe5df-92fb-4dfc-814b-3887c6e28510",
-  "name": "push-google-secret-manager",
-  "friendlyName": "Push secrets to Google Secret Manager",
-  "description": "Push secrets to GSM to share values and keep them secure in a vault.",
+  "id": "e2688c54-c8c8-4548-ac4c-91b61612a887",
+  "name": "retrieve-google-secret-manager",
+  "friendlyName": "Retrieve secrets from Google Secret Manager",
+  "description": "Retrieve secrets from GSM to use them in the pipeline.",
   "helpMarkDown": "",
   "category": "Utility",
   "author": "Bianca Rosa",
@@ -14,18 +14,11 @@
   },
   "inputs": [
     {
-      "name": "prefix",
-      "type": "string",
-      "label": "Secrets prefix",
-      "defaultValue": "",
-      "required": true
-    },
-    {
       "name": "project",
       "type": "string",
       "label": "Project name",
       "defaultValue": "",
-      "required": true
+      "required": false
     }
   ],
   "execution": {

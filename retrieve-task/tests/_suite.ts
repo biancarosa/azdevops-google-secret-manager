@@ -21,4 +21,15 @@ describe("Sample task tests", function () {
 
     done();
   });
+  // it("it should succeed", function (done) {
+  //   this.timeout(5000);
+
+  //   let tp = path.join(__dirname, "success.js");
+  //   let tr: ttm.MockTestRunner = new ttm.MockTestRunner(tp);
+
+  //   tr.run();
+  //   assert.equal(tr.succeeded, true, "should succeed");
+
+  //   done();
+  // });
 });
