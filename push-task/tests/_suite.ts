@@ -8,7 +8,7 @@ describe("Sample task tests", function () {
 
   after(() => { });
 
-  it("it should fail if tool returns 1", function (done: MochaDone) {
+  it("it should fail if tool returns 1", function (done) {
     this.timeout(2000);
 
     let tp = path.join(__dirname, "failure.js");
