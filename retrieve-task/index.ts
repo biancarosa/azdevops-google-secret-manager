@@ -4,24 +4,28 @@ const client = new SecretManagerServiceClient();
 
 async function run() {
   let project = tl.getInput("project", true) || "";
+  // try {
+  //   if (project == "") {
+  //     tl.setResult(tl.TaskResult.Failed, "Input required: project");
+  //     return
+  //   }
 
-  try {
-    console.log("Retrieving secrets from GSM")
-    const [secrets] = await client.listSecrets({
-      parent: `projects/${project}`,
-    });
-    secrets.forEach(async (secret: any) => {
-      const [versions] = await client.listSecretVersions({
-        parent: parent,
-      });
-      const [lastVersion] = await client.accessSecretVersion({
-        name: versions[0].name
-      })
-      tl.setVariable(secret.name.split('/secrets/')[1], lastVersion.payload.data.toString(), true);
-    });
-  } catch (err) {
-    tl.setResult(tl.TaskResult.Failed, err.message);
-  }
+  //   console.log("Retrieving secrets from GSM")
+  //   const [secrets] = await client.listSecrets({
+  //     parent: `projects/${project}`,
+  //   });
+  //   secrets.forEach(async (secret: any) => {
+  //     const [versions] = await client.listSecretVersions({
+  //       parent: parent,
+  //     });
+  //     const [lastVersion] = await client.accessSecretVersion({
+  //       name: versions[0].name
+  //     })
+  //     tl.setVariable(secret.name.split('/secrets/')[1], lastVersion.payload.data.toString(), true);
+  //   });
+  // } catch (err) {
+  tl.setResult(tl.TaskResult.Failed, "Input required: project");
+  // }
 }
 
 run();

@@ -1,7 +1,6 @@
 import * as path from "path";
 import * as assert from "assert";
 import * as ttm from "azure-pipelines-task-lib/mock-test";
-import fs = require("fs");
 
 describe("Sample task tests", function () {
   before(function () { });
@@ -9,6 +8,8 @@ describe("Sample task tests", function () {
   after(() => { });
 
   it("it should fail if tool returns 1", function (done) {
+    this.timeout(2000);
+
     let tp = path.join(__dirname, "failure.js");
     let tr: ttm.MockTestRunner = new ttm.MockTestRunner(tp);
 
