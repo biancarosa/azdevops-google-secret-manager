@@ -3,8 +3,8 @@ const { SecretManagerServiceClient } = require("@google-cloud/secret-manager");
 const client = new SecretManagerServiceClient();
 
 async function run() {
-  let prefix = tl.getInput("prefix", false) || "";
   let project = tl.getInput("project", true) || "";
+  let prefix = tl.getInput("prefix", true) || "";
 
   try {
     console.log("Pushing secrets to GSM")
