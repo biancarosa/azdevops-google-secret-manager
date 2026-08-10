@@ -16,7 +16,7 @@ jobs:
       TASK_TEST_TRACE: 1
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.1
